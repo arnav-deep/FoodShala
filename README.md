@@ -21,7 +21,8 @@ FoodShala is an online Food ordering website that lets customers log in and orde
   - Navigate to `Applications/MAMP/htdocs/`
   - Clone the repository: `git clone https://github.com/arnav-deep/FoodShala.git`
   - Start MAMP `Applications/MAMP/MAMP`
-  - Open Browser and navigate to `http://localhost/FoodShala`
+  - Open Browser and navigate to `http://localhost/phpmyadmin`
+  - Create a database 'Foodshala' and import this [backup file]() present in `(install location)/wamp` in the database.
 
 - #### Linux
   - Install [LAMP Server](https://bitnami.com/stack/lamp/installer)
@@ -35,7 +36,8 @@ FoodShala is an online Food ordering website that lets customers log in and orde
   - Navigate to `/home/USERNAME/lampstack-YOUR-VERSION/apache2/htdocs/`
   - Clone the repository: `git clone https://github.com/arnav-deep/FoodShala.git`
   - Start LAMP `/home/USERNAME/lampstack-YOUR-VERSION/manager-linux-x64.run`
-  - Open Browser and navigate to `http://localhost/FoodShala`
+  - Open Browser and navigate to `http://localhost/phpmyadmin`
+  - Create a database 'Foodshala' and import this [backup file]() present in `(install location)/wamp` in the database.
 
 ## Contributing
 
