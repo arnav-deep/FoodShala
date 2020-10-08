@@ -13,7 +13,8 @@ FoodShala is an online Food ordering website that lets customers log in and orde
   - Start the server:
     - WAMP:   `(install location)/wamp/wampmanager.exe`
     - XAMPP:  `(install location)/xampp-control.exe`
-  - Open Browser and navigate to `http://localhost/FoodShala`
+  - Open Browser and navigate to `http://localhost/phpmyadmin`
+  - Create a database 'Foodshala' and import this [backup file]() present in `(install location)/wamp` in the database.
 
 - #### Apple
   - Install [MAMP Server](https://www.mamp.info/en/downloads/)
