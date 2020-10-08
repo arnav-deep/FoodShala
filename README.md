@@ -38,16 +38,14 @@ FoodShala is an online Food ordering website that lets customers log in and orde
 
 ## Contributing
 
-Any and all contributions to the project are welcome. BusKaro has the potential to be applied in institute bus services at IIITDM Jabalpur so you can have real impact!
+There are already basic issues and update suggestions mentioned in [Issues](https://github.com/arnav-deep/FoodShala/issues).
 
-Issues tagged as `good first issue` should be a good place to start.
-
-If you're ready to contribute code, see the [contribution guide](https://github.com/arnav-deep/FoodShala/blob/master/CONTRIBUTING.md).
+If want to contribute code, see the [contribution guide](https://github.com/arnav-deep/FoodShala/blob/master/CONTRIBUTING.md).
 
 ## HacktoberFest 2020
 
-- The repository is open to contributions during HacktoberFest 2020.
-- Please read the [contribution guide](https://github.com/ajwad-shaikh/BusKaro/blob/master/CONTRIBUTING.md) thoroughly for more before sending in Pull Requests.
+- The repository is always open to contributions.
+- Please read the [contribution guide](https://github.com/arnav-deep/FoodShala/blob/master/CONTRIBUTING.md) thoroughly for more before sending in Pull Requests.
 
 Created by [Arnav Deep](https://github.com/arnav-deep/).
 Copyright 2020 © Arnav Deep
