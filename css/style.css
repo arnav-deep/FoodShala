@@ -1,0 +1,157 @@
+* {
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+}
+#outer-box {
+  height: 93.6%;
+  width: 100%;
+  background-image: linear-gradient(rgba(20, 0, 0, 0.4),rgba(90, 0, 0, 0.4));
+  background-position: center;
+  background-size: cover;
+  position: absolute;
+}
+#regform-box {
+  width: 400px;
+  height: 580px;
+  position: relative;
+  margin: 6% auto;
+  background: #ffffff;
+  padding: 5px;
+  overflow: hidden;
+}
+#logform-box {
+  width: 400px;
+  height: 320px;
+  position: relative;
+  margin: 6% auto;
+  background: #ffffff;
+  padding: 5px;
+  overflow: hidden;
+}
+#menubox {
+  top: 30%;
+  width: 90%;
+  background: #ffffff;
+  margin: 20px;
+}
+#regbutton-box {
+  width: 225px;
+  margin: 30px auto;
+  position: relative;
+  box-shadow: 0 0 20px 9px #ff61241f;
+  border-radius: 30px;
+}
+#boxtitle {
+  align: center;
+  margin: 30px auto;
+  color: #ff6124;
+  position: relative;
+}
+#regtoggle-btn {
+  padding: 10px 18px;
+  cursor: pointer;
+  background: transparent;
+  border: 0;
+  outline: none;
+  position: relative;
+}
+#change-btn {
+  top: 0;
+  left: 0;
+  position: absolute;
+  width: 120px;
+  height: 100%;
+  background: linear-gradient(to right, #ff105f, #ffad06);
+  border-radius: 30px;
+  transition: .5s;
+}
+#cus_reg {
+  top: 100px;
+  position: absolute;
+  width: 280px;
+  transition: .5s;
+}
+#menu_reg {
+  top: 140px;
+  left: 15%;
+  position: absolute;
+  width: 280px;
+}
+#res_reg {
+  top: 100px;
+  position: absolute;
+  width: 280px;
+  transition: .5s;
+}
+#reginput-field {
+  width: 100%;
+  padding: 10px 0;
+  margin: 5px 0;
+  border-top: 0;
+  border-left: 0;
+  border-right: 0;
+  border-bottom: 1px solid #999999;
+  outline: none;
+  background: transparent;
+}
+#menu-field {
+  width: 100%;
+  text-align: center;
+  padding: 10px 0;
+  margin: 5px 0;
+  border-top: 0;
+  border-left: 0;
+  border-right: 0;
+  border-bottom: 0;
+  outline: none;
+  background: transparent;
+}
+#ressubmit-btn {
+  width: 85%;
+  padding: 10px 30px;
+  cursor: pointer;
+  display: block;
+  margin: auto;
+  background: linear-gradient(to right, #ff105f, #ffad06);
+  border: 0;
+  outline: none;
+  border-radius: 30px;
+}
+#cussubmit-btn {
+  width: 85%;
+  padding: 10px 30px;
+  cursor: pointer;
+  display: block;
+  margin: auto;
+  background: linear-gradient(to right, #ff105f, #ffad06);
+  border: 0;
+  outline: none;
+  border-radius: 30px;
+}
+#regcheck-box {
+  margin: 24px 80px 30px 0;
+}
+#checkbox-veg {
+  color: #777777;
+  font-size: 16px;
+  bottom: 64px;
+  left: 40px;
+  position: absolute;
+}
+#checkbox-nonveg {
+  color: #777777;
+  font-size: 16px;
+  bottom: 64px;
+  left: 140px;
+  position: absolute;
+}
+#cus_reg {
+  left: 50px;
+}
+#res_reg {
+  left: 450px;
+}
+th {
+   text-align: center;
+}
