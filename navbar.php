@@ -46,21 +46,35 @@
       <li class="nav-item">
         <a class="nav-link" href="menu.php">Menu</a>
       </li>
-      <li class="nav-item" id="editmenu-btn" name="editmenu">
+
+      <?php if(isset($_SESSION["loggedin"]) && $_SESSION["id"] === 1){ ?>
+        <li class="nav-item" id="editmenu-btn" name="editmenu">
         <a class="nav-link" href="addmenuitem.php">Edit Menu</a>
       </li>
       <li class="nav-item" id="orders-btn" name="ordersmenu">
         <a class="nav-link" href="orders.php">Orders</a>
       </li>
-      <li class="nav-item" id="login-btn" name="login">
+      <?php
+      }  ?>
+
+
+
+
+      
+      <?php if(isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true){ ?>
+        <li class="nav-item" id="logout-btn" name="logout">
+        <a class="nav-link" href="logout.php">Log Out</a>
+      </li> 
+      <?php
+      }else {?>
+       <li class="nav-item" id="login-btn" name="login">
         <a class="nav-link" href="login.php">Log In</a>
       </li>
       <li class="nav-item" id="register-btn" name="register">
         <a class="nav-link" href="register.php">Register</a>
       </li>
-      <li class="nav-item" id="logout-btn" name="logout">
-        <a class="nav-link" href="logout.php">Log Out</a>
-      </li>
+      <?php
+      }  ?>
     </ul>
   </div>
 </nav>
