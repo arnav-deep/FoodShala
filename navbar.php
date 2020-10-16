@@ -2,38 +2,8 @@
 
   include('head.php');
 
-  // if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
-  //   echo "<script>hideLink('logout-btn')</script>";
-  //   echo "<script>hideLink('editmenu-btn')</script>";
-  //   echo "<script>showLink('login-btn')</script>";
-  //   echo "<script>showLink('register-btn')</script>";
-  // }
-  // else {
-  //   echo "<script>showLink('logout-btn')</script>";
-  //   echo "<script>hideLink('login-btn')</script>";
-  //   echo "<script>hideLink('register-btn')</script>";
-  //   if ($_SESSION["id"] === 1) {
-  //     echo "<script>showLink('editmenu-btn')</script>";
-  //   }
-  //   else {
-  //     echo "<script>hideLink('editmenu-btn')</script>";
-  //   }
-  // }
-
 ?>
 
-<!-- <script>
-  function hideLink(id) {
-    var elem = document.getElementById(id);
-    elem.style.visibility = 'hidden';
-  }
-
-  function showLink(id) {
-    var elem = document.getElementById(id);
-    elem.style.visibility = 'visible';
-  }
-
-</script> -->
 
 <nav class="mb-1 navbar navbar-expand-lg navbar-dark red lighten-1">
   <a class="navbar-brand" style="color: white;">FoodShala</a>
