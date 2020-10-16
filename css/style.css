@@ -29,6 +29,15 @@
   padding: 5px;
   overflow: hidden;
 }
+#menuform-box {
+  width: 400px;
+  height: 420px;
+  position: relative;
+  margin: 6% auto;
+  background: #ffffff;
+  padding: 5px;
+  overflow: hidden;
+}
 #menubox {
   top: 30%;
   width: 90%;

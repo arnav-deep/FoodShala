@@ -70,7 +70,7 @@
           $_SESSION["id"] = 1;
           $_SESSION["email"] = $remail;
 
-          header("location: menu.php");
+          header("location: orders.php");
         }
 
       }

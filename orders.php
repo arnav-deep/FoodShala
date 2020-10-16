@@ -60,7 +60,7 @@
             $cphone = $row["c_phone"];
             $cadd = $row["c_add"];
 
-            echo '<tr>
+            echo '<tr style="text-align: center">
                     <td>'.$dish.'</td>
                     <td>'.$cquan.'</td>
                     <td>'.$cname.'</td>

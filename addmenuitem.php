@@ -42,13 +42,6 @@
 
         $query = "INSERT INTO menu(m_r_email, m_item, m_cost, m_nonveg) VALUES ('$mremail', '$mitem', '$mcost', '$mnonveg')";
         $result = mysqli_query($con, $query);
-
-        // if (!$insert) {
-        //   echo mysqli_error();
-        // }
-        // else {
-        //   echo "New item added succesfully.";
-        // }
       }
 
     ?>
