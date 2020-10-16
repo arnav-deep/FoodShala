@@ -64,7 +64,7 @@
             $cost = $row["m_cost"];
             $nonvegcode = $row["m_nonveg"];
 
-            if ($nonvegcode === 1) {
+            if ($nonvegcode === '1') {
               $nonveg = "Non Veg";
             }
             else {
