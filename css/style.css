@@ -4,7 +4,7 @@
   font-family: sans-serif;
 }
 #outer-box {
-  height: 93.6%;
+  height: 90.9%;
   width: 100%;
   background-image: linear-gradient(rgba(20, 0, 0, 0.4),rgba(90, 0, 0, 0.4));
   background-position: center;
@@ -52,7 +52,7 @@
   border-radius: 30px;
 }
 #boxtitle {
-  align: center;
+  text-align: center;
   margin: 30px auto;
   color: #ff6124;
   position: relative;
@@ -163,4 +163,31 @@
 }
 th {
    text-align: center;
+}
+.fixed_header{
+  background: #ffffff;
+  margin: 20px;
+
+}
+
+.fixed_header tbody{
+display:block;
+width: 100%;
+overflow: auto;
+height: 300px;
+}
+
+.fixed_header thead tr {
+ display: block;
+ text-align:left;
+}
+
+.fixed_header thead {
+height: 20px;
+}
+
+.fixed_header th, .fixed_header td {
+padding: 5px;
+text-align: left;
+width: 200px;
 }
