@@ -37,18 +37,25 @@
     <link rel="stylesheet" href="css/style.css">
     <title>FoodShala | Menu</title>
   </head>
-    <body style="background-image: linear-gradient(rgba(20, 0, 0, 0.4),rgba(90, 0, 0, 0.4));">
+  
+    <style>
+	  .fixed_header th, .fixed_header td {
+		width: 210px;
+	  }
+	</style>
+	
+    <body>
 
       <?php
 
         $query ="SELECT menu.m_item, user_res.r_name, menu.m_cost, menu.m_nonveg FROM menu INNER JOIN user_res ON menu.m_r_email=user_res.r_email ORDER BY menu.m_item";
-        echo '<div style="padding-top: 100px; padding-bottom: 40px; padding-left: 16%;">
-                <table class="table table-hover table-fixed fixed_header" style="width: 80%; margin auto;" id="menubox">
+        echo '<div style="padding-top: 100px; padding-bottom: 40px; padding-left: 16%; height: 800px;">
+                <table class="table table-hover table-fixed fixed_header" style="width: 80%;" id="menubox">
                   <thead class="deep-orange white-text">
                     <tr>
-                      <th style="text-align:center">Dish</th>
-                      <th style="text-align:center">Restaurant</th>
-                      <th style="text-align:center">Cost</th>
+                      <th>Dish</th>
+                      <th>Restaurant</th>
+                      <th>Cost</th>
                       <th>Veg/Non Veg</th>
                       <th>Quantity</th>
                       <th>Order here</th>

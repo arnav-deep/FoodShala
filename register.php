@@ -1,6 +1,7 @@
 <?php
   session_start();
   include('connection/connect.php');
+  include('navbar.php');
 
   if(isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true){
     echo "<script>alert('Log Out to regsiter.')</script>";
@@ -33,8 +34,6 @@
     </script> -->
 
     <?php
-
-      include('navbar.php');
 
       if(isset($_POST['cussubmit'])) {
 

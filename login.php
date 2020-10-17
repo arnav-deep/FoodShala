@@ -1,6 +1,7 @@
 <?php
   session_start();
   include('connection/connect.php');
+  include('navbar.php');
 
   if(isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true){
     echo "<script>alert('Already Logged In')</script>";
@@ -16,11 +17,9 @@
     <link rel="stylesheet" href="css/style.css">
     <title>FoodShala | Log In</title>
   </head>
-  <body>
+  <body style="rgba(90, 0, 0, 0.4)">
 
     <?php
-
-      include('navbar.php');
 
       if(isset($_POST["cussubmit"])) {
 

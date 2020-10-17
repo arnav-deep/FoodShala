@@ -1,6 +1,7 @@
 <?php
   session_start();
   include('connection/connect.php');
+  include('navbar.php');
 
   if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true) {
     header("location: login.php");
@@ -26,7 +27,6 @@
 
     <?php
 
-      include('navbar.php');
       if(isset($_POST['cussubmit'])) {
 
         $mremail = $_SESSION["email"];

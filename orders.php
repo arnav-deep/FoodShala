@@ -1,6 +1,7 @@
 <?php
   session_start();
   include('connection/connect.php');
+  include('navbar.php');
 
   if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true) {
     header("location: login.php");
@@ -14,8 +15,6 @@
     $mremail = strval($_SESSION["email"]);
   }
 
-  include('navbar.php');
-
 ?>
 
 <!DOCTYPE html>
@@ -25,7 +24,14 @@
     <link rel="stylesheet" href="css/style.css">
     <title>FoodShala | Orders</title>
   </head>
-    <body style="background-image: linear-gradient(rgba(20, 0, 0, 0.4),rgba(90, 0, 0, 0.4));">
+    
+	<style>
+	  .fixed_header th, .fixed_header td {
+		width: 260px;
+	  }
+	</style>
+	
+    <body>
 
       <?php
 
@@ -39,8 +45,8 @@
       <?php
 
         $query ="SELECT orders.o_m_item, orders.o_quan, user_cus.c_name, user_cus.c_phone, user_cus.c_add FROM orders INNER JOIN user_cus ON orders.o_c_email=user_cus.c_email WHERE orders.o_r_email = '$mremail'";
-        echo '<div style="padding-top: 50px; padding-bottom: 40px; padding-left: 16%;">
-                <table class="table table-hover table-fixed" style="width: 80%; margin auto;" id="menubox">
+        echo '<div style="display: block; padding-top: 50px; padding-bottom: 40px; padding-left: 16%; max-height: 100px;">
+                <table class="table table-hover table-fixed fixed_header" style="width: 80%;" id="menubox">
                   <thead class="deep-orange white-text">
                     <tr>
                       <th>Dish</th>
