@@ -43,12 +43,12 @@
 
         $query ="SELECT menu.m_item, user_res.r_name, menu.m_cost, menu.m_nonveg FROM menu INNER JOIN user_res ON menu.m_r_email=user_res.r_email ORDER BY menu.m_item";
         echo '<div style="padding-top: 100px; padding-bottom: 40px; padding-left: 16%;">
-                <table class="table table-hover table-fixed" style="width: 80%; margin auto;" id="menubox">
+                <table class="table table-hover table-fixed fixed_header" style="width: 80%; margin auto;" id="menubox">
                   <thead class="deep-orange white-text">
                     <tr>
-                      <th>Dish</th>
-                      <th>Restaurant</th>
-                      <th>Cost</th>
+                      <th style="text-align:center">Dish</th>
+                      <th style="text-align:center">Restaurant</th>
+                      <th style="text-align:center">Cost</th>
                       <th>Veg/Non Veg</th>
                       <th>Quantity</th>
                       <th>Order here</th>
