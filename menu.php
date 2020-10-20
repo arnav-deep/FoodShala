@@ -1,7 +1,8 @@
 <?php
   session_start();
+
+  require_once 'src/Cart.php';
   include('connection/connect.php');
-  include('navbar.php');
 
   if(isset($_POST['ordersubmit'])) {
     if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true) {
@@ -22,12 +23,27 @@
 
       $omitem = $_POST['odish'];
       $oquan = $_POST['oquan'];
+      $ocost = $_POST['ocost'];
 
-      $query = "INSERT INTO orders(o_r_email, o_c_email, o_m_item, o_quan) VALUES ('$oremail','$ocemail', '$omitem', '$oquan')";
-      $result = mysqli_query($con, $query);
-      echo "<script>alert('Food Succesfully ordered. Details mailed to registered email.')</script>";
+      Cart::instance()->add($oremail, $omitem, $ocost, $oquan, [
+          'veg_non_veg' => $_POST['dnonveg'],
+          'restaurant_name' => $orname,
+      ]);
+
+      // Redirect, so refresh don't re-execute the same.
+      header('Location: ' . $_SERVER['REQUEST_URI']);
+      exit;
+
+      //$query = "INSERT INTO orders(o_r_email, o_c_email, o_m_item, o_quan) VALUES ('$oremail','$ocemail', '$omitem', '$oquan')";
+      //$result = mysqli_query($con, $query);
+
+      // echo "<script>alert('Food Succesfully ordered. Details mailed to registered email.')</script>";
     }
   }
+
+  // HTML content loaded later than scripts.
+  include('navbar.php');
+
 ?>
 
 <!DOCTYPE html>
@@ -84,10 +100,10 @@
                     <td><input type="text" id="menu-field" name="orname" form="orderform'.$rown.'" value="'.$rname.'" readonly /></td>
                     <td><input type="text" id="menu-field" name="ocost" form="orderform'.$rown.'" value="'.$cost.'" readonly /></td>
                     <td><input type="text" id="menu-field" name="dnonveg" form="orderform'.$rown.'" value="'.$nonveg.'" readonly /></td>
-                    <td><input type="number" id="menu-field" name="oquan" form="orderform'.$rown.'" value="1" required /></td>
+                    <td><input type="number" id="menu-field" name="oquan" min="1" form="orderform'.$rown.'" value="1" required /></td>
                     <td>
                       <center>
-                        <input type="submit" class="btn btn-deep-orange" form="orderform'.$rown.'" value="ORDER" name="ordersubmit"/>
+                        <input type="submit" class="btn btn-deep-orange" form="orderform'.$rown.'" value="ADD" name="ordersubmit"/>
                       </center>
                     </td>
                   </tr>';
@@ -99,5 +115,6 @@
           </tbody>
         </table>
     </div>
+    <pre><?php var_dump( Cart::instance()->all() ); ?></pre>
   </body>
 </html>
