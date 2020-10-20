@@ -1,9 +1,12 @@
 <?php
 session_start();
 
-require_once 'connection/connect.php';
-require_once 'src/Cart.php';
-require_once 'src/Order.php';
+//error_reporting(E_ALL);
+//ini_set('display_errors', 'on');
+
+require_once __DIR__ . '/connection/connect.php';
+require_once __DIR__ . '/src/Cart.php';
+require_once __DIR__ . '/src/Order.php';
 
 
 if( isset( $_GET['clear'] ) ){
