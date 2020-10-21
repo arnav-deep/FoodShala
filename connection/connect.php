@@ -5,7 +5,7 @@ global $con;
 $servername = "localhost"; //server
 $username = "root"; //username	global $con;
 $password = ""; //password
-$dbname = "foodshala";  //database
+$dbname = "hacktoberfest_food_shala";  //database
 
 // Create connection
 $con = new mysqli($servername, $username, $password, $dbname);

@@ -27,9 +27,15 @@
 </head>
     
 <style>
-  .fixed_header th, .fixed_header td {
-    width: 260px;
-  }
+	.fixed_header th, .fixed_header td {
+		width: 260px;
+	}
+	.table-fixed tbody {
+		height: auto;
+		max-height: 600px;
+		overflow-y: auto;
+		width: 100%;
+	}
 </style>
 
 <body>
@@ -52,10 +58,28 @@
 //      ?>
 
     <div class="container">
+		
+		<div id="boxtitle" style="color: white;">
+			<?php
+				$result = $con->query("SELECT r_name FROM user_res WHERE r_email = '$mremail'");
+				while($row = mysqli_fetch_array($result)) {
+				  $rname = $row['r_name'];
+				}
+				echo "<center><h1>".$rname."'s Menu</h1></center>";
 
-        <?php $orders = Order::getByRestaurant( $mremail ); ?>
+				$orders = Order::getByRestaurant( $mremail );
+			?>
+		</div>
 
-        <table class="table table-hover table-fixed bg-light mt-5">
+        <table class="table table-hover table-fixed fixed_header bg-light mt-5">
+			<thead class="deep-orange white-text">
+				<th class="font-weight-bold">Order ID</th>
+				<th class="font-weight-bold">Customer</th>
+				<th class="font-weight-bold">Customer Number</th>
+				<th class="font-weight-bold">Address</th>
+				<th class="font-weight-bold">Total</th>
+				<th class="font-weight-bold">Order Time</th>
+			</thead>
             <tbody>
 
             <?php if (empty( $orders )): ?>
@@ -105,6 +129,9 @@
         </table>
 
     </div>
-
+	
+	<!-- For debugging only -->
+	<!-- <pre> --><?php //var_dump( Cart::instance()->all() ); ?> <!-- </pre> -->
+	
 </body>
 </html>

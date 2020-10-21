@@ -55,9 +55,15 @@
   </head>
   
     <style>
-	  .fixed_header th, .fixed_header td {
-		width: 210px;
-	  }
+		.fixed_header th, .fixed_header td {
+			width: 210px;
+		}
+		.table-fixed tbody {
+			height: auto;
+			max-height: 500px;
+			overflow-y: auto;
+			width: 100%;
+		}
 	</style>
 	
     <body>
@@ -66,7 +72,7 @@
 
         $query ="SELECT menu.m_item, user_res.r_name, menu.m_cost, menu.m_nonveg FROM menu INNER JOIN user_res ON menu.m_r_email=user_res.r_email ORDER BY menu.m_item";
         echo '<div style="padding-top: 100px; padding-bottom: 40px; padding-left: 16%; height: 800px;">
-                <table class="table table-hover table-fixed fixed_header" style="width: 80%;" id="menubox">
+                <table class="table table-hover table-fixed fixed_header bg-light" style="width: 80%;" id="menubox">
                   <thead class="deep-orange white-text">
                     <tr>
                       <th>Dish</th>
@@ -115,6 +121,6 @@
           </tbody>
         </table>
     </div>
-    <pre><?php var_dump( Cart::instance()->all() ); ?></pre>
+    
   </body>
 </html>

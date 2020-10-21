@@ -11,7 +11,7 @@ require_once __DIR__ . '/src/Order.php';
 
 if( isset( $_GET['clear'] ) ){
     Cart::instance()->clear();
-    header('Location: /cart.php');
+    header('Location: cart.php');
     exit;
 }
 
@@ -29,7 +29,7 @@ if( isset( $_POST['place-order'] ) ){
         ?>
         <script>
             alert("Food Succesfully ordered. Details mailed to registered email.");
-            window.location = './menu.php';
+            window.location = 'menu.php';
         </script>
         <?php
 
@@ -46,7 +46,7 @@ include('navbar.php');
 <head>
     <meta charset="utf-8">
     <link rel="stylesheet" href="css/style.css">
-    <title>FoodShala | Menu</title>
+    <title>FoodShala | Your Cart</title>
 </head>
 
 <style>
