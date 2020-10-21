@@ -1,9 +1,13 @@
 <?php
   session_start();
   if (isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true) {
-    $_SESSION["loggedin"] = false;
-    $_SESSION["id"] = -1;
-    $_SESSION["email"] = "";
+
+    session_destroy();
+
+//    $_SESSION["loggedin"] = false;
+//    $_SESSION["id"] = -1;
+//    $_SESSION["email"] = "";
+
     echo "<script>if(confirm('Logged out succesfully.')){document.location.href='login.php'};</script>";
     exit;
   }

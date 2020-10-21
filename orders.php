@@ -1,5 +1,6 @@
 <?php
   session_start();
+  require_once __DIR__ . '/src/Order.php';
   include('connection/connect.php');
   include('navbar.php');
 
@@ -19,66 +20,91 @@
 
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-  <head>
+<head>
     <meta charset="utf-8">
     <link rel="stylesheet" href="css/style.css">
     <title>FoodShala | Orders</title>
-  </head>
+</head>
     
-	<style>
-	  .fixed_header th, .fixed_header td {
-		width: 260px;
-	  }
-	</style>
-	
-    <body>
+<style>
+  .fixed_header th, .fixed_header td {
+    width: 260px;
+  }
+</style>
 
-      <?php
+<body>
 
-        $result = $con->query("SELECT r_name FROM user_res WHERE r_email = '$mremail'");
-        while($row = mysqli_fetch_array($result)) {
-          $rname = $row['r_name'];
-        }
-        echo "<br><br><center><h1>Orders of ".$rname."</h1></center>";
-      ?>
+<!--      --><?php
+//
+//        echo "<pre>";
+//        $orders = Order::getByRestaurant( $mremail );
+//        foreach ( $orders as $order ){
+//            $items = $order->items( $mremail );
+//        }
+//        exit;
+//
+//
+//        $result = $con->query("SELECT r_name FROM user_res WHERE r_email = '$mremail'");
+//        while($row = mysqli_fetch_array($result)) {
+//          $rname = $row['r_name'];
+//        }
+//        echo "<br><br><center><h1>Orders of ".$rname."</h1></center>";
+//      ?>
 
-      <?php
+    <div class="container">
 
-        $query ="SELECT orders.o_m_item, orders.o_quan, user_cus.c_name, user_cus.c_phone, user_cus.c_add FROM orders INNER JOIN user_cus ON orders.o_c_email=user_cus.c_email WHERE orders.o_r_email = '$mremail'";
-        echo '<div style="display: block; padding-top: 50px; padding-bottom: 40px; padding-left: 16%; max-height: 100px;">
-                <table class="table table-hover table-fixed fixed_header" style="width: 80%;" id="menubox">
-                  <thead class="deep-orange white-text">
+        <?php $orders = Order::getByRestaurant( $mremail ); ?>
+
+        <table class="table table-hover table-fixed bg-light mt-5">
+            <tbody>
+
+            <?php if (empty( $orders )): ?>
+                <tr>
+                    <td colspan="4">No orders present.</td>
+                </tr>
+            <?php endif; ?>
+
+            <?php
+                foreach ( $orders as $index => $order ):
+                    $customer = $order->customer();
+                    $items = $order->items( $mremail );
+            ?>
+                <tr>
+                    <th class="text-left font-weight-bold" width="100">#<?php echo $order->number(); ?></th>
+                    <th class="font-weight-bold" width="200"><?php echo $customer->name; ?></th>
+                    <th class="font-weight-bold"><?php echo $customer->phone; ?></th>
+                    <th class="text-left font-weight-bold"><?php echo $customer->address; ?></th>
+                    <th class="text-right font-weight-bold" width="100"><?php echo number_format( $order->amount ); ?></th>
+                    <th class="font-weight-bold"><?php echo $order->created_at->format('d M, Y | h:i a'); ?></th>
+                </tr>
+                <tr>
+                    <td colspan="6" style="height: auto; padding: 2px 0;">
+                        <hr class="my-0">
+                    </td>
+                </tr>
+                <?php foreach ($items as $item): ?>
                     <tr>
-                      <th>Dish</th>
-                      <th>Quantity</th>
-                      <th>Customer Name</th>
-                      <th>Contact</th>
-                      <th>Address</th>
+                        <td colspan="2"></td>
+                        <td class="text-left"><?php echo $item->item_name; ?></td>
+                        <td><?php echo $item->item_qty; ?></td>
+                        <td class="text-right"><?php echo number_format( $item->item_total_cost ); ?></td>
+                        <td></td>
                     </tr>
-                  </thead>
-                  <tbody>';
+                <?php endforeach; ?>
 
-        if ($result = $con->query($query)) {
-          while ($row = $result->fetch_assoc()) {
-            $dish = $row["o_m_item"];
-            $cquan = $row["o_quan"];
-            $cname = $row["c_name"];
-            $cphone = $row["c_phone"];
-            $cadd = $row["c_add"];
+                <?php if ( $index != count( $orders ) - 1 ): ?>
+                <tr>
+                    <td colspan="6" style="height: auto; padding: 2px 0;">
+                        <hr class="my-2" style="border-width: 5px">
+                    </td>
+                </tr>
+                <?php endif; ?>
 
-            echo '<tr style="text-align: center">
-                    <td>'.$dish.'</td>
-                    <td>'.$cquan.'</td>
-                    <td>'.$cname.'</td>
-                    <td>'.$cphone.'</td>
-                    <td>'.$cadd.'</td>
-                  </tr>';
-          }
-          $result->free();
-        }
-      ?>
-          </tbody>
+            <?php endforeach; ?>
+            </tbody>
         </table>
+
     </div>
-  </body>
+
+</body>
 </html>

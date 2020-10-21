@@ -1,5 +1,6 @@
 <?php
 
+  require_once 'src/Cart.php';
   include('head.php');
 
 ?>
@@ -25,26 +26,30 @@
         <a class="nav-link" href="orders.php">Orders</a>
       </li>
       <?php
-      }  ?>
-
-
-
-
-      
-      <?php if(isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true){ ?>
-        <li class="nav-item" id="logout-btn" name="logout">
-        <a class="nav-link" href="logout.php">Log Out</a>
-      </li> 
-      <?php
-      }else {?>
-       <li class="nav-item" id="login-btn" name="login">
-        <a class="nav-link" href="login.php">Log In</a>
-      </li>
-      <li class="nav-item" id="register-btn" name="register">
-        <a class="nav-link" href="register.php">Register</a>
-      </li>
-      <?php
-      }  ?>
+      }
+      ?>
+    </ul>
+    <ul class="navbar-nav ml-auto">
+        <?php if(isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true){ ?>
+            <li class="nav-item">
+                <a class="nav-link d-flex align-items-center" href="cart.php">
+                    <i class="fas fa-shopping-cart mr-1"></i> Cart
+                    <span class="badge badge-dark ml-1"><?php echo Cart::instance()->totalCount(); ?></span>
+                </a>
+            </li>
+            <li class="nav-item" id="logout-btn" name="logout">
+                <a class="nav-link" href="logout.php"><i class="fas fa-sign-out-alt"></i> Log Out</a>
+            </li>
+            <?php
+        }else {?>
+            <li class="nav-item" id="login-btn" name="login">
+                <a class="nav-link" href="login.php">Log In</a>
+            </li>
+            <li class="nav-item" id="register-btn" name="register">
+                <a class="nav-link" href="register.php">Register</a>
+            </li>
+            <?php
+        }  ?>
     </ul>
   </div>
 </nav>
